@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
 import '../styles/global.scss';
 import '../styles/Login.scss';
-import logo from '../assets/logo.png';
-
 
 const Login = () => {
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/global.scss';
-import '../styles/Verify.scss';
+import '../styles/verify.scss';
 
 const Verify = () => {
   const navigate = useNavigate();
