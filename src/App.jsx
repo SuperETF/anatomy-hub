@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Signup from './pages/Signup';
-import BasicQuiz from './pages/basicQuiz'; // 🔥 컴포넌트 이름 대문자!
+import BasicQuiz from './pages/basicquiz'; // 🔥 컴포넌트 이름 대문자!
 import Verify from './pages/verify';
 import ResetPassword from './pages/ResetPassword';
 import FindAccount from './pages/FindAccount'; // 🔍 컴포넌트 import
