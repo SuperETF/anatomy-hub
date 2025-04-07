@@ -35,7 +35,7 @@ const Signup = () => {
     setMessage('');
 
     if (form.password !== form.confirmPassword) {
-      setError('비밀번호가 일치하지 않습니다.');
+      setError('비밀번호와 비밀번호 확인이 다릅니다.');
       return;
     }
 
@@ -50,19 +50,21 @@ const Signup = () => {
     });
 
     if (signUpError) {
-      setError(signUpError.message);
+      if (signUpError.message.includes('User already registered')) {
+        setError('이미 가입된 이메일입니다.');
+      } else {
+        setError(signUpError.message);
+      }
       return;
     }
 
     const user = data.user;
 
-    // 인증이 필요한 경우 → session이 null
     if (!data.session) {
       setMessage('가입 성공! 이메일 인증 후 로그인 해주세요.');
       return navigate('/verify');
     }
 
-    // 유저 프로필 정보 저장
     if (user) {
       const { error: profileError } = await supabase.from('user_profiles').insert([
         {

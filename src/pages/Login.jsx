@@ -23,7 +23,11 @@ const Login = () => {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
 
     if (error) {
-      setError(error.message);
+      if (error.message.includes('Invalid login credentials')) {
+        setError('아이디 또는 비밀번호가 올바르지 않습니다.');
+      } else {
+        setError(error.message);
+      }
     } else {
       navigate('/dashboard');
     }
@@ -32,10 +36,10 @@ const Login = () => {
   return (
     <div className="login-page">
       <div className="login-container">
-      <div className="logo">
-      <div className="text-sub">유리한 클래스</div> {/* ✅ 한 줄 추가 */}
-  <div className="text--">메타 인지 클럽</div>
-</div>
+        <div className="logo">
+          <div className="text-sub">유리한 클래스</div>
+          <div className="text--">메타 인지 클럽</div>
+        </div>
 
         <form onSubmit={handleLogin}>
           <label htmlFor="email">이메일</label>
